@@ -13,6 +13,11 @@ gem "dry-types", "~> 1.0", ">= 1.6.1"
 gem "puma"
 gem "rake"
 
+gem "rodauth", "~> 2.26"
+gem "bcrypt", "~> 3.1"
+gem "mail", "~> 2.8"
+gem "tilt", "~> 2.0"
+
 gem "rom", "~> 5.3"
 gem "rom-sql", "~> 3.6"
 gem "pg"
