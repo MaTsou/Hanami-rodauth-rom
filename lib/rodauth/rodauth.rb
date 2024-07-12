@@ -1,9 +1,6 @@
 require 'roda'
 
 class RodauthAuthentication < Roda
-  app = Hanami.app.prepare :persistence
-  db = app['persistence.db']
-
   plugin :middleware
   # do sessions have to be managed by hanami ?
   plugin :sessions, secret: "Mylong secret string which has to be more than 64 char long and long and long"
