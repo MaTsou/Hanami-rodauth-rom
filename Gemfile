@@ -18,6 +18,7 @@ gem "bcrypt", "~> 3.1"
 gem "mail", "~> 2.8"
 gem "tilt", "~> 2.0"
 
+gem "sequel", "~>5.82"
 gem "rom", "~> 5.3"
 gem "rom-sql", "~> 3.6"
 gem "pg"
