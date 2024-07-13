@@ -3,5 +3,5 @@
 require "hanami/boot"
 require_relative "lib/rodauth/rodauth"
 
-use RodauthAuthentication
+use SaneBudget::RodauthAuthentication
 run Hanami.app
