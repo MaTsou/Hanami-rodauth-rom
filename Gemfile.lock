@@ -216,7 +216,7 @@ GEM
     rb-inotify (0.11.1)
       ffi (~> 1.0)
     regexp_parser (2.9.2)
-    roda (3.81.0)
+    roda (3.82.0)
       rack
     rodauth (2.35.0)
       roda (>= 2.6.0)
@@ -284,6 +284,7 @@ DEPENDENCIES
   database_cleaner-sequel
   dotenv
   dry-types (~> 1.0, >= 1.6.1)
+  erubi (~> 1.13)
   guard-puma
   hanami (~> 2.1)
   hanami-assets (~> 2.1)

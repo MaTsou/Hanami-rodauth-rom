@@ -17,6 +17,7 @@ gem "rodauth", "~> 2.26"
 gem "bcrypt", "~> 3.1"
 gem "mail", "~> 2.8"
 gem "tilt", "~> 2.0"
+gem "erubi", "~> 1.13"
 
 gem "sequel", "~>5.82"
 gem "rom", "~> 5.3"
