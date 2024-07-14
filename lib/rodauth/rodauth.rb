@@ -15,8 +15,8 @@ module SaneBudget
       # It is better. Indeed, I can register a unique 'admin' for each company by 
       # checking the membership table... To do so, I can use after_create_account 
       # rodauth callback !
-      login_redirect "/"
-      login_return_to_requested_location? true
+      require_login_confirmation? false
+
       reset_password_autologin? true
       logout_redirect "/login"
 
