@@ -18,11 +18,14 @@ module SaneBudget
       require_login_confirmation? false
 
       reset_password_autologin? true
-      logout_redirect "/login"
+      login_return_to_requested_location? true
 
       after_create_account do
         remember_login
       end
+
+      login_redirect "/"
+      logout_redirect "/login"
     end
     plugin :render, escape: true, views: 'lib/rodauth/'
 
