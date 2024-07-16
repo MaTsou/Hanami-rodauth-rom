@@ -5,8 +5,7 @@ module SaneBudget
     module Budgets
       class Home < SaneBudget::Action
         def handle(request, response)
-          account_id = current_account_id( request )
-          response[:account_id] = account_id
+          response[:account_id] = current_account_id( request )
         end
       end
     end
