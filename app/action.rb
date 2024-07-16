@@ -8,8 +8,8 @@ module SaneBudget
     include Deps['persistence.rom']
 
     def current_account_id( request )
-      request.env['rack.session']['account_id']
-      # or request.env['rodauth'].session_value (if env['rodauth'] is set)
+      request.env['rodauth'].session_value
     end
+
   end
 end
