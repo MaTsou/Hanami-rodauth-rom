@@ -7,9 +7,9 @@ module SaneBudget
     secret = Hanami.app.settings['session_secret'] || "Mylong secret string which has to be more than 64 char long and long and long"
 
     plugin :middleware
-    # do sessions have to be managed by hanami ?
-    plugin :sessions, secret: secret, key: "sane_budget.session"
-    plugin :route_csrf
+    # rodauth manage session for authentication (account_id value)
+    # hanami manage session for form submission (csrf token)
+    plugin :sessions, secret: secret, key: "sane_budget_rodauth_session"
 
     plugin :rodauth do
       db registered_db
@@ -33,8 +33,6 @@ module SaneBudget
     plugin :render, escape: true, views: 'lib/rodauth/'
 
     route do |r|
-      check_csrf! { "Invalid token"; r.redirect "/" }
-
       rodauth.load_memory # auto-login if remembered account..
       rodauth.check_active_session
 
