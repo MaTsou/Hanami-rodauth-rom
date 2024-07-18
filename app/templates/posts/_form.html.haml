@@ -1,0 +1,10 @@
+%p
+  %span
+    = f.label "Title", for: :title, class: 'form-label'
+    %span{ style: 'color: red;'} #{errors&.fetch( :title )&.join}
+  = f.text_field :title, class: 'form-control'
+%p
+  %span
+    = f.label "Contenu", for: :body, class: 'form-label'
+    %span{ style: 'color: red;'} #{errors&.fetch( :body, nil )&.join}
+  = f.text_field :body, class: 'form-control'

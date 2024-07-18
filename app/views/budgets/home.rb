@@ -1,13 +1,14 @@
 # frozen_string_literal: true
+require 'haml'
 
 module SaneBudget
   module Views
     module Budgets
       class Home < SaneBudget::View
-        include Deps['repositories.account_repo']
+        include Deps['repositories.post_repo']
 
-        expose :account do |account_id:|
-          account_repo.by_id( account_id )
+        expose :posts do |account_id:|
+          post_repo.from_account( account_id )
         end
       end
     end
