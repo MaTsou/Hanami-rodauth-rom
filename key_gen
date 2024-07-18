@@ -1,0 +1,4 @@
+#!/bin/bash
+#
+# Génère une clé aléatoire de $1 octets
+cat /dev/urandom | tr -dc '[:alpha:]' | head -c $1
