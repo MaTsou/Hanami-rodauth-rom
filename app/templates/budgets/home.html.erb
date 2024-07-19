@@ -1,0 +1,29 @@
+<h3><%= "List of #{posts&.first&.account&.email} posts :" %></h3>
+<div style="display: flex; flex-direction: column; gap: 2ex;">
+  <% posts.each do |post| %>
+    <div>
+      <div style="display: flex; align-items: center; justify-content: space-between; border: 1px solid #bbb; border-radius: 6px; padding: 2px 3px 1px; background-color: #eee;">
+        <details>
+          <summary style="display: flex;"><%= post.title %></summary>
+          <%= post.body %>
+        </details>
+        <div style="display: flex; align-items: start; gap: 1ex;">
+          <a href=<%= routes.path( :edit_post, id: post.id ) %>
+           class='btn' style='padding: 0;'>
+           <iconify-icon icon="mdi:edit" style="color: blue; font-size: 26pt;"></iconify-icon>
+          </a>
+          <%= form_for :post,
+            action: routes.path( :delete_post, id: post.id ),
+            method: 'delete' do |f|
+              f.submit '', style:'font-size: 16px; padding: 0;',
+                class: 'btn' do %Q(
+             <iconify-icon icon="mdi:trash" style="color: red; font-size: 26pt;"></iconify-icon>
+              ).html_safe
+                end
+            end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<a href=<%= routes.path( :new_post ) %> style="margin-top: 3ex;" class='btn btn-primary'>Add a post</a>
