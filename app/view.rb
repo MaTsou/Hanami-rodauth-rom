@@ -5,5 +5,6 @@ require "hanami/view"
 
 module SaneBudget
   class View < Hanami::View
+    include Deps['components.icon']
   end
 end
