@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-require 'haml'
+#require 'haml'
 
 module SaneBudget
   module Views
