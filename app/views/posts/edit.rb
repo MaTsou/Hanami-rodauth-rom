@@ -10,7 +10,7 @@ module SaneBudget
           post_repo.by_id( id )
         end
 
-        expose :errors
+        expose :errors, default: {}
       end
     end
   end

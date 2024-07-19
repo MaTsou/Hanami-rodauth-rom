@@ -6,7 +6,7 @@ module SaneBudget
     module Posts
       class New < SaneBudget::View
         expose :account_id
-        expose :errors
+        expose :errors, default: {}
       end
     end
   end
