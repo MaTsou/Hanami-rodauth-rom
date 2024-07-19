@@ -14,5 +14,8 @@ module SaneBudget
     config.actions.cookies = {
       domain: "sane_budget.logicore.fr"
     }
+
+    # some problems with iconify cdn leads me to disable csp
+    config.actions.content_security_policy = false
   end
 end
