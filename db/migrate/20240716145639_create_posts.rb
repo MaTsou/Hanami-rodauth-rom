@@ -2,7 +2,7 @@
 
 ROM::SQL.migration do
   change do
-    create_table( :blogs ) do
+    create_table( :posts ) do
       primary_key :id, type: :Bignum
       foreign_key :account_id, :accounts, null: false, type: :Bignum, on_delete: :cascade
       String :title, null: false
