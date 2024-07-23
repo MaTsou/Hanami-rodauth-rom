@@ -20,8 +20,8 @@
 	}
 
 	// container-paddings
-	--padding0: 1ex;
-	@for $i from 1 through 3 {
+	--padding0: .2ex;
+	@for $i from 1 through 5 {
 		--padding#{$i}: calc(var(--padding#{$i - 1}) * var(--scale-ratio));
 	}
 	// stack-l gaps
