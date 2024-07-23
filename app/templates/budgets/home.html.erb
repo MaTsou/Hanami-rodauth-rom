@@ -1,5 +1,5 @@
 <%= tag.h3 "List of #{post_author} posts :" %>
-<div style="display: flex; flex-direction: column; gap: 2ex;">
+<stack-l gap-1>
   <% posts.each do |post| %>
   <my-container bordered radius0 bg0 padding1>
     <turbo-frame id="<%= "post_#{post.id}_frame" %>"
@@ -25,6 +25,6 @@
     </turbo-frame>
   </my-container>
   <% end %>
-</div>
-<%= tag.a href: routes.path( :new_post ), style: "margin-top: 3ex;",
-  class: 'btn btn-primary' do "Add a post" end %>
+</stack-l>
+<%= tag.a href: routes.path( :new_post ), style: "margin-top: var(--gap0);",
+  class: 'btn btn-primary', data: { turbo: false } do "Add a post" end %>
