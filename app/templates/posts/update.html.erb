@@ -1,0 +1,21 @@
+<turbo-stream action="update" target="<%= "post_#{post.id}_frame" %>">
+  <template>
+    <details>
+      <%= tag.summary post.title, style:"display: flex;"%>
+      <%= tag.p post.body %>
+    </details>
+    <div style="display: flex; gap: 1ex;">
+      <%= tag.a class: 'btn',
+        href: routes.path( :edit_post, id: post.id ),
+        style: 'padding: 0;' do icons[:edit] end %>
+
+      <%= form_for :post,
+      action: routes.path( :delete_post, id: post.id ),
+      method: 'delete' do |f|
+        f.submit icons[:trash], style:'padding: 0;', class: 'btn',
+
+        data: { turbo_confirm: 'Are you sure ?' }
+end %>
+    </div>
+  </template>
+</turbo-stream>

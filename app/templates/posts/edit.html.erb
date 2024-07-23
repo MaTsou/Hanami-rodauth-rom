@@ -1,5 +1,4 @@
-<turbo-frame id=<%= "post_#{post.id}_frame" %>
-           >
+<turbo-frame id="<%= "post_#{post.id}_frame" %>" >
     <%= form_for :post,
       routes.path( :update_post, id: post.id ),
       method: :patch do |f|
