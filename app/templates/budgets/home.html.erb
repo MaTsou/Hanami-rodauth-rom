@@ -1,25 +1,29 @@
 <%= tag.h3 "List of #{post_author} posts :" %>
 <div style="display: flex; flex-direction: column; gap: 2ex;">
   <% posts.each do |post| %>
-    <div>
-      <div style="display: flex; align-items: center; justify-content: space-between; border: 1px solid #bbb; border-radius: 6px; padding: 2px 3px 1px; background-color: #eee;">
-        <details>
-          <%= tag.summary post.title, style:"display: flex;"%>
-          <%= tag.p post.body %>
-        </details>
-        <div style="display: flex; align-items: start; gap: 1ex;">
-          <%= tag.a class: 'btn',
-            href: routes.path( :edit_post, id: post.id ),
-            style: 'padding: 0;' do icons[:edit] end %>
+  <my-container bordered radius0 bg0 padding1>
+    <turbo-frame id="<%= "post_#{post.id}_frame" %>"
+          style="display: flex; align-items: center; justify-content: 
+                 space-between;">
+      <details>
+        <%= tag.summary post.title, style:"display: flex;"%>
+        <%= tag.p post.body %>
+      </details>
+      <div style="display: flex; gap: 1ex;">
+        <%= tag.a class: 'btn',
+          href: routes.path( :edit_post, id: post.id ),
+          style: 'padding: 0;' do icons[:edit] end %>
 
-          <%= form_for :post,
-            action: routes.path( :delete_post, id: post.id ),
-            method: 'delete' do |f|
-              f.submit icons[:trash], style:'padding: 0;', class: 'btn'
-            end %>
-        </div>
+        <%= form_for :post,
+          action: routes.path( :delete_post, id: post.id ),
+          method: 'delete' do |f|
+            f.submit icons[:trash], style:'padding: 0;', class: 'btn',
+
+              data: { turbo_confirm: 'Are you sure ?', turbo: false }
+          end %>
       </div>
-    </div>
+    </turbo-frame>
+  </my-container>
   <% end %>
 </div>
 <%= tag.a href: routes.path( :new_post ), style: "margin-top: 3ex;",
