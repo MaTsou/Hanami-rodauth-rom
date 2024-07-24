@@ -12,6 +12,7 @@ module SaneBudget
             post_repo.create( request.params[:post] )
             response.redirect_to routes.path( :home )
           else
+            response.status = 303 # needed because of turbo !
             response.render new,
               account_id: current_account_id( request ),
               errors: request.params.errors[:post]
