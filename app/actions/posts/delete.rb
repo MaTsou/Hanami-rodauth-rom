@@ -8,15 +8,12 @@ module SaneBudget
 
         def handle(request, response)
           post_repo.delete( request.params[:id] )
-          unless request.env['HTTP_ACCEPT'].include? 'turbo-stream'
+          unless turbo_stream?( request )
             response.redirect_to routes.path( :home )
           else
-            response.format = "text/vnd.turbo-stream.html"
-            response.body = %Q(
-             <turbo-stream
-             action="remove"
-             target="post_#{request.params[:id]}_frame">
-             </turbo-stream>
+            response.format = turbo_stream_format
+            response.body = turbo_stream_remove(
+              "post_#{request.params[:id]}_frame"
             )
           end
         end
