@@ -2,7 +2,9 @@ module SaneBudget
   module Components
     class Icon
       def initialize( **options )
-        @options = options
+        @options = {
+          style: "vertical-align: top;"
+        }.merge options
       end
 
       def render( name, **options )

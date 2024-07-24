@@ -1,5 +1,11 @@
+@import "variables.scss";
+@import "base.scss";
+@import "common.scss";
+
+
 body {
   background-color: #fff;
   color: #000;
   font-family: sans-serif;
 }
+

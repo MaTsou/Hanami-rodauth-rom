@@ -1,6 +1,16 @@
 import * as assets from "hanami-assets";
+import {sassPlugin} from "esbuild-sass-plugin";
 
-await assets.run();
+await assets.run({
+esbuildOptionsFn: (args, esbuildOptions) => {
+     const plugins = [...esbuildOptions.plugins, sassPlugin()];
+
+     return {
+       ...esbuildOptions,
+       plugins,
+     };
+   },
+});
 
 // To provide additional esbuild (https://esbuild.github.io) options, use the following:
 //
