@@ -3,13 +3,8 @@
 %stack-l( gap-1 )
   - posts.each do |post|
 
-    %my-container( bordered radius0 bg0 padding1 )
-
-      %turbo-frame{
-      id: frame_id_for( post ),
-      style: "display: flex; align-items: center; justify-content: space-between;"
-      }
-        = render "posts/show", post: post, icons: icons
+    %turbo-frame{ id: frame_id_for( post ) }
+      = render "posts/show", post: post, icons: icons
 
 %a{
   href: routes.path( :new_post ),
