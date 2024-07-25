@@ -1,18 +1,3 @@
 %turbo-stream{ action: "update", target: frame_id_for( post ) }
   %template
-
-    %details
-      %summary{ style: "display: flex;" }= post.title
-      %p= post.body
-
-    %div{ style: "display: flex; gap: 1ex;" }
-      %a.btn{
-        href: routes.path( :edit_post, id: post.id ),
-        style: 'padding: 0;'
-        }= icons[:edit]
-
-      = form_for :post,
-        action: routes.path( :delete_post, id: post.id ),
-        method: 'delete' do |f|
-        = f.submit icons[:trash], style:'padding: 0;', class: 'btn',
-        data: { turbo_confirm: 'Are you sure ?' }
+    = render "show", post: post, icons: icons
