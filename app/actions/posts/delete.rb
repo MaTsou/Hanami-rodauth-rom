@@ -13,8 +13,8 @@ module SaneBudget
           else
             response.format = hotwired.turbo_format
             response.body = hotwired.turbo_remove(
-              "post_#{request.params[:id]}_frame"
-            )
+              request.params[:frame_id]
+           )
           end
         end
       end

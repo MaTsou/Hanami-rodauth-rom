@@ -1,4 +1,4 @@
-%my-container( bordered radius0 bg0 padding1 )
+%turbo-frame{ id: frame_id_for( post ) }
   %div{
     style: "display: flex; align-items: center; justify-content: space-between;"
     }
@@ -15,6 +15,7 @@
       = form_for :post,
         action: routes.path( :delete_post, id: post.id ),
         method: 'delete' do |f|
+        = f.hidden_field :frame_id, value: frame_id_for( post ) << 'wrapper'
         = f.submit icons[:trash],
           class: 'btn',
           style:'padding: 0;',
