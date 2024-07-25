@@ -4,7 +4,7 @@ module SaneBudget
   module Views
     module Posts
       class Update < SaneBudget::View
-        include Deps['repositories.post_repo', 'components.icon']
+        include Deps['repositories.post_repo']
 
         expose :post do |id:|
           post_repo.by_id( id )
