@@ -15,7 +15,7 @@ module SaneBudget
         end
 
         expose :icons do
-          common = "font-size: 21pt;"# may be a class here. Layout consistency!
+          common = "font-size: 1.618em;"
           { edit:
             icon.render( 'edit', style: [ common, 'color: blue;'].join(' ') ),
             trash:
