@@ -8,11 +8,11 @@ module SaneBudget
 
         def handle(request, response)
           post_repo.delete( request.params[:id] )
-          unless answer.needs_turbo?( request )
+          unless hotwired.needs_turbo?( request )
             response.redirect_to routes.path( :home )
           else
-            response.format = answer.turbo_format
-            response.body = answer.turbo_remove(
+            response.format = hotwired.turbo_format
+            response.body = hotwired.turbo_remove(
               "post_#{request.params[:id]}_frame"
             )
           end

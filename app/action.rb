@@ -5,7 +5,8 @@ require "hanami/action"
 
 module SaneBudget
   class Action < Hanami::Action
-    include Deps[ 'turbo_stream.answer' ]
+    include Deps[ 'hotwired' ]
+    #format :html, :turbo_stream
 
     def current_account_id( request )
       request.env['rodauth'].session_value

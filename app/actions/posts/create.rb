@@ -12,7 +12,7 @@ module SaneBudget
             post_repo.create( request.params[:post] )
             response.redirect_to routes.path( :home )
           else
-            response.status = answer.unprocessable_status # needed if turbo !
+            response.status = hotwired.unprocessable_status # needed if turbo !
             response.render new,
               account_id: current_account_id( request ),
               errors: request.params.errors[:post]
