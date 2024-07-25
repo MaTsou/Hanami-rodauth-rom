@@ -1,15 +1,16 @@
 %h3 List of #{post_author} posts :
 
-%stack-l( gap-1 )
+%stack-l{ id: 'posts_frame', 'gap-1' => true, data: { turbo_frame: true } }
   - posts.each do |post|
 
     %turbo-frame{ id: frame_id_for( post ) << 'wrapper' }
       %my-container( bordered radius0 bg0 padding1 )
         = render "posts/show", post: post, icons: icons
 
-%a{
-  href: routes.path( :new_post ),
-  style: "margin-top: var(--gap0);",
-  class: 'btn btn-primary',
-  data: { turbo: false }
-  } Add a post
+%turbo-frame{ id: 'new_post' }
+  %a{
+    href: routes.path( :new_post ),
+    style: "margin-top: var(--gap0);",
+    class: 'btn btn-primary',
+    data: { turbo: true }
+    } Add a post

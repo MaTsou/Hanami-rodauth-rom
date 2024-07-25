@@ -1,0 +1,14 @@
+%turbo-stream{ action: 'update', target: 'new_post' }
+  %template
+    %a{
+      href: routes.path( :new_post ),
+      style: "margin-top: var(--gap0);",
+      class: 'btn btn-primary',
+      data: { turbo: true }
+      } Add a post
+%turbo-stream{ action: 'append', target: 'posts_frame' }
+  %template
+    %turbo-frame{ id: frame_id_for( post ) << 'wrapper' }
+      %my-container( bordered radius0 bg0 padding1 )
+        = render "posts/show", post: post, icons: icons
+
