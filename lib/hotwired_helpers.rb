@@ -1,6 +1,6 @@
 class HotwiredHelpers
 
-  def needs_turbo?( request )
+  def is_turbo?( request )
     request.env['HTTP_ACCEPT'].include? 'turbo-stream'
   end
 

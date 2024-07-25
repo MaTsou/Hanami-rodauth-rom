@@ -10,7 +10,7 @@ module SaneBudget
         def handle(request, response)
           if request.params.valid?
             post_repo.update( request.params[:id], request.params[:post] )
-            unless hotwired.needs_turbo?( request )
+            unless hotwired.is_turbo?( request )
               response.redirect_to routes.path( :home )
             else
               response.format = hotwired.turbo_format
