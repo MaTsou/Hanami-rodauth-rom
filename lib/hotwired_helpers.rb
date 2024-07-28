@@ -1,7 +1,7 @@
 class HotwiredHelpers
 
   def is_turbo?( request )
-    request.env['HTTP_ACCEPT'].include? 'turbo-stream'
+    request.accept.include? 'turbo-stream'
   end
 
   def turbo_format
