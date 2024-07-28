@@ -9,6 +9,7 @@ gem "hanami-router", "~> 2.1"
 gem "hanami-validations", "~> 2.1"
 gem "hanami-view", "~> 2.1"
 
+gem "i18n", "~>1.14"
 gem "dry-types", "~> 1.0", ">= 1.6.1"
 gem "puma"
 gem "rake"
