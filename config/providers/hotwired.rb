@@ -1,7 +1,9 @@
 Hanami.app.register_provider :hotwired do
-  start do
-  require target.root.join( "lib/hotwired_helpers" )
+  prepare do
+    require target.root.join( "lib/hotwired_helpers" )
+  end
 
-  register "hotwired", HotwiredHelpers.new
+  start do
+    register "hotwired", HotwiredHelpers.new
   end
 end
