@@ -1,49 +1,54 @@
 @import "variables.scss";
 
 :root {
-	//colors
-	--income-color: hsl( 51, 100%, 50% ); // gold
-	--use-color: hsl( 0, 0%, 75% ); // silver
-	//font-size: calc( 1rem + .1vw );
-	--scale-ratio: 1.618;
+  //colors
+  --income-color: hsl( 51, 100%, 50% ); // gold
+  --use-color: hsl( 0, 0%, 75% ); // silver
+  //font-size: calc( 1rem + .1vw );
+  --scale-ratio: 1.618;
 
-	// background-colors
-	--bg0: #{$grey-lighter};
-	--bg1: #{$grey-light};
-	--bg2: #{$grey};
+  // background-colors
+  --bg0: #{$grey-lighter};
+  --bg1: #{$grey-light};
+  --bg2: #{$grey};
 
-	// border-radius
-	--radius0: .5em;
+  // border-radius
+  --radius0: .5em;
 
-	@for $i from 1 through 3 {
-		--radius#{$i}: calc(var(--radius#{$i - 1}) * var(--scale-ratio));
-	}
+  @for $i from 1 through 3 {
+    --radius#{$i}: calc(var(--radius#{$i - 1}) * var(--scale-ratio));
+  }
 
-	// container-paddings
-	--padding0: .2ex;
-	@for $i from 1 through 5 {
-		--padding#{$i}: calc(var(--padding#{$i - 1}) * var(--scale-ratio));
-	}
-	// stack-l gaps
-	--default-stack-gap: 1.5em; // needed ? isn't it --gap0 ?
-	--gap0: 1.5em;
-	@for $i from 1 through 3 {
-		--gap#{-$i}: calc( var(--gap#{-$i + 1}) / var(--scale-ratio) );
-	}
-	@for $i from 1 through 2 {
-		--gap#{$i}: calc( var(--gap#{$i - 1}) * var(--scale-ratio) );
-	}
+  // container-paddings
+  --padding0: .2ex;
+  @for $i from 1 through 5 {
+    --padding#{$i}: calc(var(--padding#{$i - 1}) * var(--scale-ratio));
+  }
+  // stack-l gaps
+  --default-stack-gap: 1.5em; // needed ? isn't it --gap0 ?
+  --gap0: 1.5em;
+  @for $i from 1 through 3 {
+    --gap#{-$i}: calc( var(--gap#{-$i + 1}) / var(--scale-ratio) );
+  }
+  @for $i from 1 through 2 {
+    --gap#{$i}: calc( var(--gap#{$i - 1}) * var(--scale-ratio) );
+  }
 
-	//font-size: 14px !important; // to prevent any redefinitions
+  //font-size: 14px !important; // to prevent any redefinitions
 }
 
 * {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-iconify-icon {
-	color: hsl(0, 0%, 25%);
+.icon {
+  vertical-align: top;
+  font-size: 1.618em;
+  color: hsl(0, 0%, 25%);
+
+  &.edit { color: blue; }
+  &.trash { color: red; }
 }
 
