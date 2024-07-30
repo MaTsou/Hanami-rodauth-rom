@@ -1,3 +1,7 @@
+- icons = icon.define( { edit: { style: 'color: blue;' },
+  trash: { style: 'color: red;' },
+  }, style: 'font-size: 1.618em;' )
+
 %turbo-frame{ id: frame_id_for( post ) }
   %div{
     style: "display: flex; align-items: center; justify-content: space-between;"
@@ -19,4 +23,4 @@
         = f.submit icons[:trash],
           class: 'btn',
           style:'padding: 0;',
-          'data-turbo-confirm': 'Are you sure ?'
+          data: { turbo_confirm: 'Are you sure ?' }
