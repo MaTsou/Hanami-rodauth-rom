@@ -1,6 +1,11 @@
-- icons = icon.define( { edit: { style: 'color: blue;' },
-  trash: { style: 'color: red;' },
-  }, style: 'font-size: 1.618em;' )
+:ruby
+  icons = icon.define(
+    {
+    edit: { style: 'color: blue;' },
+    trash: { style: 'color: red;' },
+    },
+    style: 'font-size: 1.618em;' # common style and class here
+  )
 
 %turbo-frame{ id: frame_id_for( post ) }
   %div{
