@@ -1,50 +1,31 @@
 module SaneBudget
   module Components
+    # Icon class dedicated to render icon components inside templates
+    # Choice is made to provide default .icon css class together with the name 
+    # of the icon.
+    # Using a Ruby class is smoother than a partial template because of the 
+    # possibility to map icon_names to iconify-icon_names and icon stuff is 
+    # totally encapsulated in the class..
     class Icon
+      NAME_MAPPER = {
+        add: 'circle-outlined',
+        #trash: 'alternative-trash-icon'
+      }
+
       def initialize
-        @options = { style: "vertical-align: top;" }
-      end
-
-      def render( name, *options )
-        %Q(
-          <iconify-icon icon='mdi:#{name}' #{to_string( compute( *options ) )}>
-          </iconify-icon>
-        ).html_safe
-      end
-
-      def define( icons, **options )
-        icons.merge( icons ) do |k, v|
-          render( k, options, v )
-        end
-      end
-
-      private
-
-      def to_string( options )
-        %Q(
-          style='#{options[:style]}'
-          class='#{options[:class]}'
-        ).gsub("\n", "").gsub(/\s\s+/," ").strip
-      end
-
-      def compute( *options )
-        {
-          style: styles( @options, *options).join('; '),
-          class: classes( @options, *options ).join(' ')
+        @template = Tilt::HamlTemplate.new {
+          "%iconify-icon.icon{ class: name, icon: ico }"
         }
       end
 
-      def styles( *options )
-        options.map do |opt|
-          opt.fetch( :style, '' ).split(';').map(&:strip)
-        end.flatten
+      def render( name )
+        @template.render(
+          self,
+          name: name,
+          ico: "mdi:#{NAME_MAPPER.fetch( name, name )}"
+        ).html_safe
       end
 
-      def classes( *options )
-        options.map do |opt|
-          opt.fetch( :class, '' ).split(' ').map(&:strip)
-        end.flatten
-      end
     end
   end
 end

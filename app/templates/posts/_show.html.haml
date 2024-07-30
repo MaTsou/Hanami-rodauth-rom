@@ -1,12 +1,3 @@
-:ruby
-  icons = icon.define(
-    {
-    edit: { style: 'color: blue;' },
-    trash: { style: 'color: red;' },
-    },
-    style: 'font-size: 1.618em;' # common style and class here
-  )
-
 %turbo-frame{ id: frame_id_for( post ) }
   %div{
     style: "display: flex; align-items: center; justify-content: space-between;"
@@ -19,13 +10,13 @@
       %a.btn{
         href: routes.path( :edit_post, id: post.id ),
         style: 'padding: 0;'
-        }= icons[:edit]
+        }= icon.render( :edit )
 
       = form_for :post,
         action: routes.path( :delete_post, id: post.id ),
         method: 'delete' do |f|
         = f.hidden_field :frame_id, value: frame_id_for( post ) << 'wrapper'
-        = f.submit icons[:trash],
+        = f.submit icon.render( :trash ),
           class: 'btn',
           style:'padding: 0;',
           data: { turbo_confirm: 'Are you sure ?' }
