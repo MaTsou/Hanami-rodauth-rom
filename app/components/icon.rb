@@ -14,7 +14,9 @@ module SaneBudget
 
       def initialize
         @template = Tilt::HamlTemplate.new {
-          "%iconify-icon.icon{ class: name, icon: ico }"
+          <<~HAML
+          %iconify-icon.icon{ class: name, icon: ico }
+          HAML
         }
       end
 
